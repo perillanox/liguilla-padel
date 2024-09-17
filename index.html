@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liguilla de Pádel</title>
-    <link rel="stylesheet" href="static/styles.css">
-    <script defer src="static/script.js"></script>
+    <link rel="stylesheet" href="static/styles.css"> <!-- Enlace al archivo CSS -->
+    <script defer src="static/script.js"></script> <!-- Enlace al archivo JS -->
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -21,43 +21,44 @@
 
     <!-- Sección Home -->
     <section id="home" class="seccion visible">
-        <h1>¡Bienvenido a la Liguilla de Pádel!</h1>
-        <p>Consulta el nivel de los jugadores en la sección de <strong>Rating</strong> y la clasificación general en <strong>Clasificación</strong>.</p>
+        <h1>Bienvenidos a la Liguilla de Pádel</h1>
+        <p>Disfruta de la competición y consulta el ranking de jugadores y la clasificación actual.</p>
     </section>
 
-    <!-- Sección Rating -->
+    <!-- Sección de Rating -->
     <section id="rating" class="seccion">
-        <h2>Rating de Jugadores (Nivel 0-100)</h2>
+        <h2>Rating de los Jugadores</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Posición</th>
+                    <th>#</th>
                     <th>Jugador</th>
                     <th>Rating</th>
                 </tr>
             </thead>
             <tbody id="tabla-rating">
-                <!-- Se llenará dinámicamente -->
+                <!-- Datos llenados dinámicamente desde script.js -->
             </tbody>
         </table>
     </section>
 
-    <!-- Sección Clasificación -->
+    <!-- Sección de Clasificación -->
     <section id="classification" class="seccion">
-        <h2>Clasificación General (Partidos Ganados)</h2>
+        <h2>Clasificación</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Posición</th>
+                    <th>#</th>
                     <th>Jugador</th>
                     <th>Puntos</th>
                     <th>Partidos Ganados</th>
                 </tr>
             </thead>
             <tbody id="tabla-clasificacion">
-                <!-- Se llenará dinámicamente -->
+                <!-- Datos llenados dinámicamente desde script.js -->
             </tbody>
         </table>
     </section>
+
 </body>
 </html>

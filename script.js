@@ -10,7 +10,7 @@ const jugadores = [
 function mostrarSeccion(seccion) {
     const secciones = document.querySelectorAll('.seccion');
     
-    // Recorrer las secciones y mostrar solo la seleccionada
+    // Recorrer todas las secciones y mostrar solo la seleccionada
     secciones.forEach(sec => {
         if (sec.id === seccion) {
             sec.classList.add('visible');
@@ -19,11 +19,11 @@ function mostrarSeccion(seccion) {
         }
     });
 
-    // Llenar dinámicamente las tablas cuando se muestran las secciones
+    // Llamamos a la función correspondiente dependiendo de la sección
     if (seccion === 'rating') {
-        mostrarRating();
+        mostrarRating(); // Llenar la tabla de rating
     } else if (seccion === 'classification') {
-        mostrarClasificacion();
+        mostrarClasificacion(); // Llenar la tabla de clasificación
     }
 }
 
@@ -31,10 +31,14 @@ function mostrarSeccion(seccion) {
 function mostrarRating() {
     const tablaRating = document.getElementById('tabla-rating');
     
-    // Verificar que el elemento exista
-    if (!tablaRating) return;
+    // Verificar que el elemento de la tabla de rating existe
+    if (!tablaRating) {
+        console.error("No se encontró la tabla de rating en el DOM");
+        return;
+    }
 
-    tablaRating.innerHTML = '';  // Limpiar la tabla antes de llenarla
+    // Limpiar la tabla antes de llenarla
+    tablaRating.innerHTML = '';  
 
     // Ordenar jugadores por rating de mayor a menor
     const jugadoresOrdenados = [...jugadores].sort((a, b) => b.rating - a.rating);
@@ -56,10 +60,14 @@ function mostrarRating() {
 function mostrarClasificacion() {
     const tablaClasificacion = document.getElementById('tabla-clasificacion');
     
-    // Verificar que el elemento exista
-    if (!tablaClasificacion) return;
+    // Verificar que el elemento de la tabla de clasificación existe
+    if (!tablaClasificacion) {
+        console.error("No se encontró la tabla de clasificación en el DOM");
+        return;
+    }
 
-    tablaClasificacion.innerHTML = '';  // Limpiar la tabla antes de llenarla
+    // Limpiar la tabla antes de llenarla
+    tablaClasificacion.innerHTML = '';  
 
     // Calcular puntos de clasificación (3 puntos por partido ganado)
     jugadores.forEach(jugador => {

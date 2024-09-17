@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liguilla de Pádel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rating">Rating</a></li>
+                <li><a href="#classification">Classification</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Home -->
+    <section id="home" class="section-home">
+        <h1>¡Bienvenido a la Liguilla de Pádel!</h1>
+        <p>En esta página encontrarás toda la información sobre los jugadores y la clasificación de nuestra liguilla.</p>
+    </section>
+
+    <!-- Sección Rating -->
+    <section id="rating" class="section-rating">
+        <h2>Rating de Jugadores</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Jugador</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody id="ratingTable">
+                <!-- Aquí se generarán los jugadores mediante JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Sección Classification -->
+    <section id="classification" class="section-classification">
+        <h2>Clasificación General</h2>
+        <ul id="classificationList">
+            <!-- Aquí se generará la clasificación mediante JavaScript -->
+        </ul>
+    </section>
+
+    <!-- Script para manejar la interactividad -->
+    <script src="script.js"></script>
+</body>
+</html>

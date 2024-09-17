@@ -1,9 +1,9 @@
 // Datos de ejemplo
 const jugadores = [
-    { nombre: "Xoán Menor", puntos: 4 },
-    { nombre: "Roberto Lamas", puntos: 2 },
-    { nombre: "Artai Losada", puntos: 0 },
-    { nombre: "Eric Fernández", puntos: 1 }
+    { nombre: "Joan ElMejor", puntos: 4 },
+    { nombre: "Jesús Villanueva", puntos: 2 },
+    { nombre: "Toni Fernández", puntos: 0 },
+    { nombre: "Alberto Toro", puntos: 1 }
 ];
 
 // Función para generar el rating de jugadores

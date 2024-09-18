@@ -1,97 +1,58 @@
-// Datos de los jugadores
-const jugadores = [
-    { nombre: "Juan Pérez", partidos_ganados: 5, rating: 85 },
-    { nombre: "Carlos Ruiz", partidos_ganados: 4, rating: 78 },
-    { nombre: "Ana Gómez", partidos_ganados: 6, rating: 92 },
-    { nombre: "Luis Martínez", partidos_ganados: 3, rating: 70 }
-];
-
-// Función para mostrar una sección específica
-function mostrarSeccion(seccion) {
+// Función para mostrar secciones dinámicamente
+function mostrarSeccion(seccionId) {
     const secciones = document.querySelectorAll('.seccion');
-    
-    // Recorrer todas las secciones y mostrar solo la seleccionada
-    secciones.forEach(sec => {
-        if (sec.id === seccion) {
-            sec.classList.add('visible');
-        } else {
-            sec.classList.remove('visible');
-        }
-    });
-
-    // Llamamos a la función correspondiente dependiendo de la sección
-    if (seccion === 'rating') {
-        mostrarRating(); // Llenar la tabla de rating
-    } else if (seccion === 'classification') {
-        mostrarClasificacion(); // Llenar la tabla de clasificación
-    }
+    secciones.forEach(seccion => seccion.classList.remove('visible'));
+    document.getElementById(seccionId).classList.add('visible');
 }
 
-// Función para mostrar la tabla de rating
-function mostrarRating() {
+// Datos de ejemplo para jugadores y MVPs
+const jugadores = [    { nombre: 'Carlos López', rating: 85, puntos: 30, ganados: 10 },    { nombre: 'Laura Martínez', rating: 92, puntos: 28, ganados: 9 },    { nombre: 'José Fernández', rating: 78, puntos: 26, ganados: 8 }];
+
+const mvps = [    { nombre: 'Carlos López', img: 'static/mvp-actual.jpg' },    { nombre: 'Laura Martínez', img: 'static/mvp-anterior1.jpg' },    { nombre: 'José Fernández', img: 'static/mvp-anterior2.jpg' }];
+
+// Función para cargar el rating de los jugadores
+function cargarRating() {
     const tablaRating = document.getElementById('tabla-rating');
-    
-    // Verificar que el elemento de la tabla de rating existe
-    if (!tablaRating) {
-        console.error("No se encontró la tabla de rating en el DOM");
-        return;
-    }
-
-    // Limpiar la tabla antes de llenarla
-    tablaRating.innerHTML = '';  
-
-    // Ordenar jugadores por rating de mayor a menor
-    const jugadoresOrdenados = [...jugadores].sort((a, b) => b.rating - a.rating);
-
-    // Llenar la tabla con los datos de los jugadores
-    jugadoresOrdenados.forEach((jugador, index) => {
-        const fila = `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${jugador.nombre}</td>
-                <td>${jugador.rating}</td>
-            </tr>
-        `;
+    jugadores.forEach((jugador, index) => {
+        const fila = `<tr>
+            <td>${index + 1}</td>
+            <td>${jugador.nombre}</td>
+            <td>${jugador.rating}</td>
+        </tr>`;
         tablaRating.innerHTML += fila;
     });
 }
 
-// Función para mostrar la tabla de clasificación
-function mostrarClasificacion() {
+// Función para cargar la clasificación de los jugadores
+function cargarClasificacion() {
     const tablaClasificacion = document.getElementById('tabla-clasificacion');
-    
-    // Verificar que el elemento de la tabla de clasificación existe
-    if (!tablaClasificacion) {
-        console.error("No se encontró la tabla de clasificación en el DOM");
-        return;
-    }
-
-    // Limpiar la tabla antes de llenarla
-    tablaClasificacion.innerHTML = '';  
-
-    // Calcular puntos de clasificación (3 puntos por partido ganado)
-    jugadores.forEach(jugador => {
-        jugador.puntos = jugador.partidos_ganados * 3;
-    });
-
-    // Ordenar jugadores por puntos de mayor a menor
-    const jugadoresOrdenados = [...jugadores].sort((a, b) => b.puntos - a.puntos);
-
-    // Llenar la tabla con los datos de los jugadores
-    jugadoresOrdenados.forEach((jugador, index) => {
-        const fila = `
-            <tr>
-                <td>${index + 1}</td>
-                <td>${jugador.nombre}</td>
-                <td>${jugador.puntos}</td>
-                <td>${jugador.partidos_ganados}</td>
-            </tr>
-        `;
+    jugadores.forEach((jugador, index) => {
+        const fila = `<tr>
+            <td>${index + 1}</td>
+            <td>${jugador.nombre}</td>
+            <td>${jugador.puntos}</td>
+            <td>${jugador.ganados}</td>
+        </tr>`;
         tablaClasificacion.innerHTML += fila;
     });
 }
 
-// Mostrar la sección Home por defecto al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    mostrarSeccion('home');
-});
+// Función para cargar el MVP actual y anteriores
+function cargarMVPs() {
+    document.getElementById('mvp-actual-nombre').textContent = mvps[0].nombre;
+    const mvpAnterioresContainer = document.getElementById('mvp-anteriores-container');
+    mvps.slice(1).forEach(mvp => {
+        const mvpHTML = `<div>
+            <img src="${mvp.img}" alt="MVP ${mvp.nombre}">
+            <p>${mvp.nombre}</p>
+        </div>`;
+        mvpAnterioresContainer.innerHTML += mvpHTML;
+    });
+}
+
+// Cargar los datos al iniciar la página
+window.onload = function() {
+    cargarRating();
+    cargarClasificacion();
+    cargarMVPs();
+};

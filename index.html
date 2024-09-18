@@ -8,13 +8,15 @@
     <script defer src="static/script.js"></script> <!-- Enlace al archivo JS -->
 </head>
 <body>
-    <!-- Barra de navegación -->
+    <!-- Barra de navegación con logo -->
     <header>
         <nav>
             <ul>
+                <li><a href="#" onclick="mostrarSeccion('home')"><img src="static/logo.png" alt="Logo" class="logo"></a></li>
                 <li><a href="#" onclick="mostrarSeccion('home')">Home</a></li>
                 <li><a href="#" onclick="mostrarSeccion('rating')">Rating</a></li>
                 <li><a href="#" onclick="mostrarSeccion('classification')">Clasificación</a></li>
+                <li><a href="#" onclick="mostrarSeccion('mvp')">MVP Jornada</a></li>
             </ul>
         </nav>
     </header>
@@ -22,7 +24,8 @@
     <!-- Sección Home -->
     <section id="home" class="seccion visible">
         <h1>Bienvenidos a la Liguilla de Pádel</h1>
-        <p>Disfruta de la competición y consulta el ranking de jugadores y la clasificación actual.</p>
+        <p>Disfruta de la competición y consulta el ranking de jugadores, la clasificación actual, y elige al mejor jugador de la jornada.</p>
+        <img src="static/bienvenida.jpg" alt="Imagen de bienvenida" class="imagen-bienvenida">
     </section>
 
     <!-- Sección de Rating -->
@@ -58,6 +61,22 @@
                 <!-- Datos llenados dinámicamente desde script.js -->
             </tbody>
         </table>
+    </section>
+
+    <!-- Sección MVP Jornada -->
+    <section id="mvp" class="seccion">
+        <h2>MVP de la Jornada</h2>
+        <div class="mvp-actual">
+            <h3>Jornada Actual</h3>
+            <img src="static/mvp-actual.jpg" alt="MVP Actual" class="mvp-grande">
+            <p><strong>Jugador: </strong><span id="mvp-actual-nombre"></span></p>
+        </div>
+        <div class="mvp-anteriores">
+            <h3>Jornadas Anteriores</h3>
+            <div id="mvp-anteriores-container" class="mvp-container">
+                <!-- Fotos MVPs anteriores generadas dinámicamente -->
+            </div>
+        </div>
     </section>
 
 </body>

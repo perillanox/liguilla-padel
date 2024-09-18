@@ -15,7 +15,11 @@ p {
     color: #555;
 }
 
-/* Barra de navegación */
+img {
+    max-width: 100%;
+}
+
+/* Barra de navegación con logo */
 header {
     background-color: #333;
     padding: 1em 0;
@@ -23,7 +27,8 @@ header {
 
 nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -34,47 +39,41 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ff9800;  /* Color naranja */
+    color: #ff9800;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.2em;
 }
 
 nav ul li a:hover {
-    color: #ffffff;  /* Color blanco al pasar el ratón */
+    color: #ffffff;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 20px;
 }
 
 /* Secciones */
 section {
     padding: 2em;
     text-align: center;
-    display: none;  /* Oculto por defecto */
+    display: none;
 }
 
 section.visible {
-    display: block;  /* Visible cuando se selecciona */
+    display: block;
 }
 
+/* Tablas */
 table {
-    width: 100%;
+    width: 80%;
+    margin: 1em auto;
     border-collapse: collapse;
-    margin-top: 1em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
 }
 
 table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #333;
-    color: white;
-}
-
-td {
-    background-color: #f9f9f9;
-}
+    border: 1

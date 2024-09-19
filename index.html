@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liguilla de Pádel</title>
-    <link rel="stylesheet" href="static/styles.css"> <!-- Enlace al archivo CSS -->
-    <script defer src="static/script.js"></script> <!-- Enlace al archivo JS -->
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <!-- Barra de navegación con logo -->
+    <!-- Barra de navegación -->
     <header>
         <nav>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="#" onclick="mostrarSeccion('home')"><img src="static/logo.png" alt="Logo" class="logo"></a></li>
                 <li><a href="#" onclick="mostrarSeccion('home')">Home</a></li>
-                <li><a href="#" onclick="mostrarSeccion('rating')">Rating</a></li>
-                <li><a href="#" onclick="mostrarSeccion('classification')">Clasificación</a></li>
-                <li><a href="#" onclick="mostrarSeccion('mvp')">MVP Jornada</a></li>
+                <li><a href="#" onclick="mostrarSeccion('players')">Players</a></li>
+                <li><a href="#" onclick="mostrarSeccion('teams')">Teams</a></li>
+                <li><a href="#" onclick="mostrarSeccion('mvp')">MVP</a></li>
             </ul>
         </nav>
     </header>
@@ -28,44 +27,21 @@
         <img src="static/bienvenida.jpg" alt="Imagen de bienvenida" class="imagen-bienvenida">
     </section>
 
-    <!-- Sección de Rating -->
-    <section id="rating" class="seccion">
-        <h2>Rating de los Jugadores</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Jugador</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-rating">
-                <!-- Datos llenados dinámicamente desde script.js -->
-            </tbody>
-        </table>
+    <!-- Sección Players -->
+    <section id="players" class="seccion">
+        <h2>Players</h2>
+        <div id="players-list"></div>
     </section>
 
-    <!-- Sección de Clasificación -->
-    <section id="classification" class="seccion">
-        <h2>Clasificación</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Jugador</th>
-                    <th>Puntos</th>
-                    <th>Partidos Ganados</th>
-                </tr>
-            </thead>
-            <tbody id="tabla-clasificacion">
-                <!-- Datos llenados dinámicamente desde script.js -->
-            </tbody>
-        </table>
+    <!-- Sección Teams -->
+    <section id="teams" class="seccion">
+        <h2>Teams</h2>
+        <div id="teams-list"></div>
     </section>
 
-    <!-- Sección MVP Jornada -->
+    <!-- Sección MVP -->
     <section id="mvp" class="seccion">
-        <h2>MVP de la Jornada</h2>
+        <h2>MVP</h2>
         <div class="mvp-actual">
             <h3>Jornada Actual</h3>
             <img src="static/mvp-actual.jpg" alt="MVP Actual" class="mvp-grande">
@@ -74,10 +50,12 @@
         <div class="mvp-anteriores">
             <h3>Jornadas Anteriores</h3>
             <div id="mvp-anteriores-container" class="mvp-container">
-                <!-- Fotos MVPs anteriores generadas dinámicamente -->
+                <img src="static/mvp-anterior1.jpg" alt="MVP Anterior 1">
+                <img src="static/mvp-anterior2.jpg" alt="MVP Anterior 2">
             </div>
         </div>
     </section>
 
+    <script src="static/script.js"></script>
 </body>
 </html>

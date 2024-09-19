@@ -51,6 +51,16 @@ nav ul li a:hover {
     margin-right: 20px;
 }
 
+/* Secciones */
+.seccion {
+    display: none;
+    padding: 2em;
+}
+
+.visible {
+    display: block;
+}
+
 /* Sección Players */
 #players-list {
     display: grid;

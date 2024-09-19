@@ -45,6 +45,7 @@ nav ul li a:hover {
     color: #ff9800;
 }
 
+/* Logo */
 .logo {
     height: 40px;
     width: auto;
@@ -53,12 +54,12 @@ nav ul li a:hover {
 
 /* Secciones */
 .seccion {
-    display: none;
+    display: none; /* Todas las secciones están ocultas inicialmente */
     padding: 2em;
 }
 
 .visible {
-    display: block;
+    display: block; /* La sección visible se muestra */
 }
 
 /* Sección Players */
@@ -111,19 +112,45 @@ nav ul li a:hover {
     padding: 1em;
 }
 
+.mvp-grande {
+    max-width: 150px;
+}
+
+.mvp-container img {
+    max-width: 80px;
+}
+
+/* Imagen de bienvenida */
+.imagen-bienvenida {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
 /* Adaptación para móviles */
 @media (max-width: 768px) {
     nav ul {
         display: none;
         flex-direction: column;
     }
-    nav ul.active {
-        display: flex;
-    }
+
     .nav-menu-btn {
         display: block;
         position: absolute;
         right: 20px;
         top: 20px;
+    }
+
+    .nav-menu-btn:hover {
+        cursor: pointer;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .player-card img, .team-card img {
+        max-width: 80px;
     }
 }

@@ -1,58 +1,47 @@
-// Función para mostrar secciones dinámicamente
+window.onload = function () {
+    // Datos de jugadores
+    const players = [
+        { name: 'Juan Pérez', rating: 85, birthdate: '1990-04-15', nationality: 'España' },
+        { name: 'María López', rating: 90, birthdate: '1988-08-23', nationality: 'España' },
+    ];
+
+    const teams = [
+        { name: 'Team 1', players: ['Juan Pérez', 'María López'], images: ['static/juan.png', 'static/maria.png'] },
+    ];
+
+    cargarJugadores(players);
+    cargarEquipos(teams);
+}
+
+function cargarJugadores(players) {
+    const playersList = document.getElementById('players-list');
+    players.forEach(player => {
+        const playerCard = document.createElement('div');
+        playerCard.classList.add('player-card');
+        playerCard.innerHTML = `
+            <img src="static/${player.name.toLowerCase().replace(' ', '-')}.jpg" alt="${player.name}">
+            <h3>${player.name}</h3>
+            <p>Rating: ${player.rating}</p>
+        `;
+        playersList.appendChild(playerCard);
+    });
+}
+
+function cargarEquipos(teams) {
+    const teamsList = document.getElementById('teams-list');
+    teams.forEach(team => {
+        const teamCard = document.createElement('div');
+        teamCard.classList.add('team-card');
+        teamCard.innerHTML = `
+            <h3>${team.name}</h3>
+            ${team.players.map((player, index) => `<img src="${team.images[index]}" alt="${player}">`).join('')}
+        `;
+        teamsList.appendChild(teamCard);
+    });
+}
+
 function mostrarSeccion(seccionId) {
     const secciones = document.querySelectorAll('.seccion');
     secciones.forEach(seccion => seccion.classList.remove('visible'));
     document.getElementById(seccionId).classList.add('visible');
 }
-
-// Datos de ejemplo para jugadores y MVPs
-const jugadores = [    { nombre: 'Carlos López', rating: 85, puntos: 30, ganados: 10 },    { nombre: 'Laura Martínez', rating: 92, puntos: 28, ganados: 9 },    { nombre: 'José Fernández', rating: 78, puntos: 26, ganados: 8 }];
-
-const mvps = [    { nombre: 'Carlos López', img: 'static/mvp-actual.jpg' },    { nombre: 'Laura Martínez', img: 'static/mvp-anterior1.jpg' },    { nombre: 'José Fernández', img: 'static/mvp-anterior2.jpg' }];
-
-// Función para cargar el rating de los jugadores
-function cargarRating() {
-    const tablaRating = document.getElementById('tabla-rating');
-    jugadores.forEach((jugador, index) => {
-        const fila = `<tr>
-            <td>${index + 1}</td>
-            <td>${jugador.nombre}</td>
-            <td>${jugador.rating}</td>
-        </tr>`;
-        tablaRating.innerHTML += fila;
-    });
-}
-
-// Función para cargar la clasificación de los jugadores
-function cargarClasificacion() {
-    const tablaClasificacion = document.getElementById('tabla-clasificacion');
-    jugadores.forEach((jugador, index) => {
-        const fila = `<tr>
-            <td>${index + 1}</td>
-            <td>${jugador.nombre}</td>
-            <td>${jugador.puntos}</td>
-            <td>${jugador.ganados}</td>
-        </tr>`;
-        tablaClasificacion.innerHTML += fila;
-    });
-}
-
-// Función para cargar el MVP actual y anteriores
-function cargarMVPs() {
-    document.getElementById('mvp-actual-nombre').textContent = mvps[0].nombre;
-    const mvpAnterioresContainer = document.getElementById('mvp-anteriores-container');
-    mvps.slice(1).forEach(mvp => {
-        const mvpHTML = `<div>
-            <img src="${mvp.img}" alt="MVP ${mvp.nombre}">
-            <p>${mvp.nombre}</p>
-        </div>`;
-        mvpAnterioresContainer.innerHTML += mvpHTML;
-    });
-}
-
-// Cargar los datos al iniciar la página
-window.onload = function() {
-    cargarRating();
-    cargarClasificacion();
-    cargarMVPs();
-};

@@ -40,6 +40,7 @@ function cargarEquipos(teams) {
     });
 }
 
+// Muestra la sección seleccionada y oculta las demás
 function mostrarSeccion(seccionId) {
     const secciones = document.querySelectorAll('.seccion');
     secciones.forEach(seccion => seccion.classList.remove('visible'));
